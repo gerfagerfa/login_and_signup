@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:login_and_signup/login.dart';
+import 'package:login_and_signup/login_option.dart';
 import 'package:login_and_signup/signup.dart';
+import 'package:login_and_signup/signup_option.dart';
 
 void main() {
   runApp(MyApp());
@@ -59,8 +61,15 @@ class _HomePageState extends State<HomePage> {
                       padding: EdgeInsets.only(bottom: login ? 0 : 55),
                       child: Align(
                         alignment: Alignment.center,
-                        child: Login(
-                          active: login
+                        child: Center(
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                              child: login 
+                              ? Login()
+                              : LoginOption(),
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -82,8 +91,15 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   color: Colors.transparent,
                   padding: EdgeInsets.only(top: login ? 55 : 0),
-                  child: SignUp(
-                    active: !login
+                  child: Center(
+                    child: SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                        child: !login 
+                        ? SignUp()
+                        : SignUpOption(),
+                      ),
+                    ),
                   )
                 ),
               ),
