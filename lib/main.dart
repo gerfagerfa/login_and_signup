@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:login_and_signup/login.dart';
+import 'package:login_and_signup/signup.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,6 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        textTheme: GoogleFonts.muktaVaaniTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
       home: HomePage(),
@@ -32,59 +36,60 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF1C1C1C),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
 
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                login = true;
-              });
-            },
-            child: AnimatedContainer(
-              duration: Duration(milliseconds: 500),
-              curve: Curves.ease,
-              height: login ? MediaQuery.of(context).size.height * 0.6 : MediaQuery.of(context).size.height * 0.4,
-              child: CustomPaint(
-                painter: CurvePainter(login),
-                child: Container(
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: login ? 0 : 55),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: Text("1", style: TextStyle(fontSize: 48.0)),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  login = true;
+                });
+              },
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 500),
+                curve: Curves.ease,
+                height: login ? MediaQuery.of(context).size.height * 0.6 : MediaQuery.of(context).size.height * 0.4,
+                child: CustomPaint(
+                  painter: CurvePainter(login),
+                  child: Container(
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: login ? 0 : 55),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Login(
+                          active: login
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
 
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                login = false;
-              });
-            },
-            child: AnimatedContainer(
-              duration: Duration(milliseconds: 500),
-              curve: Curves.ease,
-              height: login ? MediaQuery.of(context).size.height * 0.4 : MediaQuery.of(context).size.height * 0.6,
-              child: Container(
-                color: Colors.transparent,
-                padding: EdgeInsets.only(top: login ? 55 : 0),
-                child: Center(
-                  child: Text(
-                    "2", 
-                    style: TextStyle(fontSize: 48.0),
-                  ),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  login = false;
+                });
+              },
+              child: AnimatedContainer(
+                duration: Duration(milliseconds: 500),
+                curve: Curves.ease,
+                height: login ? MediaQuery.of(context).size.height * 0.4 : MediaQuery.of(context).size.height * 0.6,
+                child: Container(
+                  color: Colors.transparent,
+                  padding: EdgeInsets.only(top: login ? 55 : 0),
+                  child: SignUp(
+                    active: !login
+                  )
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
