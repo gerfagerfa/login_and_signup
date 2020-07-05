@@ -57,19 +57,14 @@ class _HomePageState extends State<HomePage> {
                 child: CustomPaint(
                   painter: CurvePainter(login),
                   child: Container(
-                    child: Padding(
-                      padding: EdgeInsets.only(bottom: login ? 0 : 55),
-                      child: Align(
-                        alignment: Alignment.center,
-                        child: Center(
-                          child: SingleChildScrollView(
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                              child: login 
-                              ? Login()
-                              : LoginOption(),
-                            ),
-                          ),
+                    padding: EdgeInsets.only(bottom: login ? 0 : 55),
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                          child: login 
+                          ? Login()
+                          : LoginOption(),
                         ),
                       ),
                     ),
@@ -104,6 +99,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+            
           ],
         ),
       ),
