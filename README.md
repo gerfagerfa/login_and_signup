@@ -1,7 +1,7 @@
-# Login and Sign Up Design App App UI in Flutter
+# Animated Login and Sign Up Design App UI in Flutter
 Source Code - Enjoy !
 
-Nice, clean and modern Login and Sign Up Design App App UI in Flutter
+Nice, clean and modern Animated Login and Sign Up Design App UI in Flutter
 
 # Most Important Social Media
 YouTube: https://www.youtube.com/channel/UCQheyq1vvmd0RaKv1EDyGfA
